@@ -1,0 +1,49 @@
+! special
+*.foreground:   #d0d0d0
+*.background:   #151515
+*.cursorColor:  #d0d0d0
+
+! black
+*.color0:       #151515
+*.color8:       #505050
+
+! red
+*.color1:       #fb9fb1
+*.color9:       #fb9fb1
+
+! green
+*.color2:       #acc267
+*.color10:      #acc267
+
+! yellow
+*.color3:       #ddb26f
+*.color11:      #ddb26f
+
+! blue
+*.color4:       #6fc2ef
+*.color12:      #6fc2ef
+
+! magenta
+*.color5:       #e1a3ee
+*.color13:      #e1a3ee
+
+! cyan
+*.color6:       #12cfc0
+*.color14:      #12cfc0
+
+! white
+*.color7:       #d0d0d0
+*.color15:      #f5f5f5
+
+! Disable ISO 14755 unicode input so we can use Ctrl-Shift bindings
+URxvt.iso14755:        false
+URxvt.iso14755_52:     false
+
+! Disable Ctrl-Alt-c & Ctrl-Alt-v bindings (optional)
+URxvt.keysym.C-M-c:    builtin-string:
+URxvt.keysym.C-M-v:    builtin-string:
+
+! Bind Ctrl-Shift-c & Ctrl-Shift-v to copy and paste
+! I dont know why, but I needed to use hex keysym values to get it to work
+URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56: eval:paste_clipboard
