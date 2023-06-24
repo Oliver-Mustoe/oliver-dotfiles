@@ -1,0 +1,1 @@
+TODO: Add configuration.nix here and also setup and i3 for nixos
