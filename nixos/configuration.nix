@@ -55,7 +55,7 @@
       defaultSession = "none+i3";
       lightdm = {
          enable = true;
-       
+	 greeters.slick.draw-user-backgrounds = true;
          greeters.enso.enable = true;
       };
     };
@@ -68,7 +68,9 @@
     };
   };
 
-
+  services.picom = {
+  	enable = true;
+  };
   # Enable the KDE Plasma Desktop Environment.
   #services.xserver.displayManager.sddm.enable = true;
   #services.xserver.desktopManager.plasma5.enable = true;
@@ -103,16 +105,16 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.oliver = {
+  users.users.deployer= {
     isNormalUser = true;
-    description = "oliver";
+    description = "deployer user"; 
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kate
-    #  thunderbird
-    ];
   };
 
+  # Alias's
+  environment.shellAliases = {
+    vi = "nvim";
+  };
   # Enviroment need link
   environment.pathsToLink = [ "/libexec" ];
 
@@ -125,14 +127,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      lxappearance
      nitrogen
      pcmanfm
      chromium
      alacritty
-     picom
-  #  wget
+#     picom
+     git
   ];
    
   # Some programs need SUID wrappers, can be configured further or are
