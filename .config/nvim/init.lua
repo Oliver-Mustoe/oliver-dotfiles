@@ -25,6 +25,8 @@ require("lazy").setup(
 }
 )
 
-
 -- Colorscheme
 vim.cmd.colorscheme "catppuccin"
+
+-- Line numbers
+vim.wo.relativenumber = true
