@@ -9,7 +9,15 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+  
+  # Enable experminetal features
+  nix.settings = {
+  	experimental-features = [ "nix-command" "flakes" ];
+	auto-optimise-store = true;
+  };
 
+  # Optimize storage
+  
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
@@ -135,6 +143,8 @@
      alacritty
 #     picom
      git
+     gcc
+     open-vm-tools
   ];
    
   # Some programs need SUID wrappers, can be configured further or are
